@@ -4,115 +4,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="torn.css">
+    <title>Green Goblin Mask - Ethan Surati</title>
+    <link rel="stylesheet" href="project-modern.css">
 </head>
 
 <body>
-    
-    
-    <!-- Sidebar Navigation -->
-    <nav id="sidebar">
-        
-        <h2>Navigation</h2>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="abt.html">About Me</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="msc.html">Other Links</a></li>
-        </ul>
-        <ul>
-            <h3>Projects</h3>
-            <li><a href="projects.html">Back</a></li>
-            <li><a href="thorn.html">Thorn Project</a></li>
-            <li><a href="sth.html">Scout Trooper Helmet</a></li>
-            <li><a href="n6.html">Noble 6 Helmet </a></li>
-            <li><a href="ar.html">Halo Assault Rifle</a></li>
-            <li><a href="gg.html">Green Goblin Mask</a></li>
-            <li><a href="dt.html">Death Trooper Helmet</a></li>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-gradient" id="bgGradient"></div>
+        <div class="floating-orb orb-1" id="orb1"></div>
+        <div class="floating-orb orb-2" id="orb2"></div>
+        <div class="floating-orb orb-3" id="orb3"></div>
+        <div class="particle-grid"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Ethan Surati</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <a href="index.html#physical-projects" class="back-button">← Back to Projects</a>
             
-        </ul>
-    </nav>
+            <div class="project-detail">
+                <div class="project-header">
+                    <h1>Green Goblin Mask</h1>
+                    <p>Wearable mask with color-changing paint and repurposed sun visor lenses for authentic visibility</p>
+                </div>
 
-    <!-- Content -->
-    <div id="content">
-        <div id="title">
-        <h1></h1>
+                <div class="project-content">
+                    <img src="https://i.postimg.cc/HxK7SrXW/IMG-7081-1.jpg" alt="Green Goblin Mask" class="project-image">
+                    
+                    <div class="content-section">
+                        <h2>Green Goblin's Mask</h2>
+                        <p>
+                            The Green Goblin mask was one of the most enjoyable projects I've completed. It was the final project I tackled on my old Ender 3 printer and required quite a bit of time to print all the individual pieces and assemble them.
+                        </p>
+                        <p>
+                            Due to the mask being printed in multiple parts, I employed extensive smoothing techniques to achieve a seamless finish. I also had the opportunity to experiment with a special type of color-changing paint, inspired by the mask seen in the 2002 Spider-Man film series.
+                        </p>
+                        <p>
+                            The end result turned out great—it's fully wearable, and you can see through the lenses, which I repurposed from a sun visor.
+                        </p>
+                    </div>
+
+                    <img src="https://i.postimg.cc/d0sN2V8S/70604157505-4026-B7-BD-0-A24-4-B88-90-DD-D17-BC3225-AEE.jpg" alt="Green Goblin Mask Detail" class="project-image">
+
+                    <div class="content-section">
+                        <h3>Project Highlights</h3>
+                        <p>
+                            • Multi-part assembly requiring extensive smoothing<br>
+                            • Color-changing paint effect inspired by the 2002 film<br>
+                            • Fully wearable with functional visibility<br>
+                            • Repurposed sun visor lenses for authentic look<br>
+                            • Final major project on Ender 3 printer
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+    </main>
 
-        <footer>
-            <p></p>
-        </footer>
-    </div>
-    <div id="article-bar">
-        <h1></h1>
-        <img src="https://i.postimg.cc/HxK7SrXW/IMG-7081-1.jpg" class="article-image">
-        
-        <h4>Green Goblin's Mask</h4>
-        
-        
-        <p>
-            The Green Goblin mask was one of the most enjoyable projects I've completed. It was the final project I tackled on my old Ender 3 printer and required quite a bit of time to print all the individual pieces and assemble them. Due to the mask being printed in multiple parts, I employed extensive smoothing techniques to achieve a seamless finish. I also had the opportunity to experiment with a special type of color-changing paint, inspired by the mask seen in the 2002 Spider-Man film series. The end result turned out great—it’s fully wearable, and you can see through the lenses, which I repurposed from a sun visor.
+    <footer>
+        <p>&copy; 2024 Ethan Surati. All rights reserved.</p>
+    </footer>
 
+    <script>
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentX = 0;
+        let currentY = 0;
 
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
 
+        function animateBackground() {
+            const bgGradient = document.getElementById('bgGradient');
+            const orb1 = document.getElementById('orb1');
+            const orb2 = document.getElementById('orb2');
+            const orb3 = document.getElementById('orb3');
 
+            currentX += (mouseX - currentX) * 0.05;
+            currentY += (mouseY - currentY) * 0.05;
 
-        </p>
-        <img src="https://i.postimg.cc/d0sN2V8S/70604157505-4026-B7-BD-0-A24-4-B88-90-DD-D17-BC3225-AEE.jpg" class="article-image">
-    </div>
-    
-    
+            const xPercent = (currentX / window.innerWidth) * 100;
+            const yPercent = (currentY / window.innerHeight) * 100;
+
+            if (bgGradient) {
+                bgGradient.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, rgba(37, 99, 235, 0.2) 0%, transparent 50%)`;
+            }
+
+            if (orb1) {
+                const orb1X = currentX * 0.3 - 200;
+                const orb1Y = currentY * 0.3 - 200;
+                orb1.style.transform = `translate(${orb1X}px, ${orb1Y}px)`;
+            }
+
+            if (orb2) {
+                const orb2X = window.innerWidth - currentX * 0.2 - 150;
+                const orb2Y = currentY * 0.4 - 150;
+                orb2.style.transform = `translate(${orb2X}px, ${orb2Y}px)`;
+            }
+
+            if (orb3) {
+                const orb3X = currentX * 0.15 + window.innerWidth * 0.3;
+                const orb3Y = window.innerHeight - currentY * 0.25 - 175;
+                orb3.style.transform = `translate(${orb3X}px, ${orb3Y}px)`;
+            }
+
+            requestAnimationFrame(animateBackground);
+        }
+
+        animateBackground();
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src= "pro.js"></script>
 </html>

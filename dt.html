@@ -4,113 +4,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="torn.css">
+    <title>Death Trooper Helmet - Ethan Surati</title>
+    <link rel="stylesheet" href="project-modern.css">
 </head>
 
 <body>
-    
-    
-    <!-- Sidebar Navigation -->
-    <nav id="sidebar">
-        
-        <h2>Navigation</h2>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="abt.html">About Me</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="msc.html">Other Links</a></li>
-        </ul>
-        <ul>
-            <h3>Projects</h3>
-            <li><a href="projects.html">Back</a></li>
-            <li><a href="thorn.html">Thorn Project</a></li>
-            <li><a href="sth.html">Scout Trooper Helmet</a></li>
-            <li><a href="n6.html">Noble 6 Helmet </a></li>
-            <li><a href="ar.html">Halo Assault Rifle</a></li>
-            <li><a href="gg.html">Green Goblin Mask</a></li>
-            <li><a href="dt.html">Death Trooper Helmet</a></li>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-gradient" id="bgGradient"></div>
+        <div class="floating-orb orb-1" id="orb1"></div>
+        <div class="floating-orb orb-2" id="orb2"></div>
+        <div class="floating-orb orb-3" id="orb3"></div>
+        <div class="particle-grid"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Ethan Surati</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <a href="index.html#physical-projects" class="back-button">← Back to Projects</a>
             
-        </ul>
-    </nav>
+            <div class="project-detail">
+                <div class="project-header">
+                    <h1>Death Trooper Helmet</h1>
+                    <p>Early project showcasing growth in 3D printing and finishing techniques from Star Wars</p>
+                </div>
 
-    <!-- Content -->
-    <div id="content">
-        <div id="title">
-        <h1></h1>
+                <div class="project-content">
+                    <img src="https://i.postimg.cc/FshSskmq/IMG-0489.jpg" alt="Death Trooper Helmet" class="project-image">
+                    
+                    <div class="content-section">
+                        <h2>Death Trooper Helmet</h2>
+                        <p>
+                            The Death Trooper helmet was one of the earliest projects I ever completed and marked my first attempt at creating a helmet using a 3D printer. I printed it on my old Ender 3 printer and, like my later projects, it involved sanding and smoothing multiple pieces to achieve a uniform finish.
+                        </p>
+                        <p>
+                            As a first attempt, I would say the project turned out decent, but it's clear that the quality of my work has significantly improved in my subsequent projects, as you can see from the newer builds.
+                        </p>
+                    </div>
+
+                    <img src="https://i.postimg.cc/6qcyGzwP/IMG-0491.jpg" alt="Death Trooper Helmet Detail" class="project-image">
+
+                    <div class="content-section">
+                        <h3>Project Significance</h3>
+                        <p>
+                            This helmet represents an important milestone in my 3D printing journey. While it may not have the polish of my later work, it demonstrates the foundation of skills that I've continued to develop and refine over time. Every maker has to start somewhere, and this project shows where my journey began.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+    </main>
 
-        <footer>
-            <p></p>
-        </footer>
-    </div>
-    <div id="article-bar">
-        <h1></h1>
-        <img src="https://i.postimg.cc/FshSskmq/IMG-0489.jpg" class="article-image">
-        
-        <h4>Death Trooper Helmet</h4>
-        
-        
-        <p>The Death Trooper helmet was one of the earliest projects I ever completed and marked my first attempt at creating a helmet using a 3D printer. I printed it on my old Ender 3 printer and, like my later projects, it involved sanding and smoothing multiple pieces to achieve a uniform finish. As a first attempt, I would say the project turned out decent, but it’s clear that the quality of my work has significantly improved in my subsequent projects, as you can see from the newer builds.
+    <footer>
+        <p>&copy; 2024 Ethan Surati. All rights reserved.</p>
+    </footer>
 
+    <script>
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentX = 0;
+        let currentY = 0;
 
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
 
+        function animateBackground() {
+            const bgGradient = document.getElementById('bgGradient');
+            const orb1 = document.getElementById('orb1');
+            const orb2 = document.getElementById('orb2');
+            const orb3 = document.getElementById('orb3');
 
-        </p>
-        <img src="https://i.postimg.cc/6qcyGzwP/IMG-0491.jpg" class="article-image">
-    </div>
-    
-    
+            currentX += (mouseX - currentX) * 0.05;
+            currentY += (mouseY - currentY) * 0.05;
+
+            const xPercent = (currentX / window.innerWidth) * 100;
+            const yPercent = (currentY / window.innerHeight) * 100;
+
+            if (bgGradient) {
+                bgGradient.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, rgba(37, 99, 235, 0.2) 0%, transparent 50%)`;
+            }
+
+            if (orb1) {
+                const orb1X = currentX * 0.3 - 200;
+                const orb1Y = currentY * 0.3 - 200;
+                orb1.style.transform = `translate(${orb1X}px, ${orb1Y}px)`;
+            }
+
+            if (orb2) {
+                const orb2X = window.innerWidth - currentX * 0.2 - 150;
+                const orb2Y = currentY * 0.4 - 150;
+                orb2.style.transform = `translate(${orb2X}px, ${orb2Y}px)`;
+            }
+
+            if (orb3) {
+                const orb3X = currentX * 0.15 + window.innerWidth * 0.3;
+                const orb3Y = window.innerHeight - currentY * 0.25 - 175;
+                orb3.style.transform = `translate(${orb3X}px, ${orb3Y}px)`;
+            }
+
+            requestAnimationFrame(animateBackground);
+        }
+
+        animateBackground();
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src= "pro.js"></script>
 </html>

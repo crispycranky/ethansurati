@@ -5,59 +5,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scout Trooper Helmet - Ethan Surati</title>
-    <link rel="stylesheet" href="torn.css">
+    <link rel="stylesheet" href="project-modern.css">
 </head>
 
 <body>
-    <!-- Fractal Canvas Background -->
-    <canvas id="fractal-canvas"></canvas>
-    
-    <!-- Mobile Menu Toggle -->
-    <button id="menu-toggle">☰</button>
-    
-    <!-- Sidebar Navigation -->
-    <nav id="sidebar">
-        <h2>Navigation</h2>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="abt.html">About Me</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="msc.html">Other Links</a></li>
-        </ul>
-        <h3>Projects</h3>
-        <ul>
-            <li><a href="projects.html">Back</a></li>
-            <li><a href="thorn.html">Thorn Project</a></li>
-            <li><a href="sth.html">Scout Trooper Helmet</a></li>
-            <li><a href="n6.html">Noble 6 Helmet</a></li>
-            <li><a href="ar.html">Halo Assault Rifle</a></li>
-            <li><a href="gg.html">Green Goblin Mask</a></li>
-            <li><a href="dt.html">Death Trooper Helmet</a></li>
-        </ul>
-    </nav>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-gradient" id="bgGradient"></div>
+        <div class="floating-orb orb-1" id="orb1"></div>
+        <div class="floating-orb orb-2" id="orb2"></div>
+        <div class="floating-orb orb-3" id="orb3"></div>
+        <div class="particle-grid"></div>
+    </div>
 
-    <!-- Content -->
-    <div id="content">
-        <div id="title">
-            <h1></h1>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Ethan Surati</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <a href="index.html#physical-projects" class="back-button">← Back to Projects</a>
+            
+            <div class="project-detail">
+                <div class="project-header">
+                    <h1>Scout Trooper Helmet</h1>
+                    <p>Fully functional Star Wars Scout Trooper helmet with opening visor, custom decals, and weathered finish</p>
+                </div>
+
+                <div class="project-content">
+                    <img src="https://i.postimg.cc/rFdfTT3k/IMG-0866.jpg" alt="Scout Trooper Helmet" class="project-image">
+                    
+                    <div class="content-section">
+                        <h2>About the Build</h2>
+                        <p>
+                            The iconic Scout Trooper helmet from Star Wars was a multi-day project—not just for the 3D printing but also due to the extensive sanding, painting, and finding a visor that fit the helmet perfectly. I made the decals using regular paper, which I glued onto the helmet, and gave it a layered white gloss spray paint job with Krylon, combined with light black spray paint to simulate the dirt and wear seen in the film.
+                        </p>
+                        <p>
+                            The helmet opens and closes just like the one in the movie. My main inspiration for this project was simply that I wanted it but wasn't willing to pay for it, so I decided to build it myself. I'd say it turned out pretty great!
+                        </p>
+                    </div>
+
+                    <img src="https://i.postimg.cc/T3gQy9TN/IMG-0871.jpg" alt="Scout Trooper Helmet Detail" class="project-image">
+
+                    <div class="content-section">
+                        <h3>Key Features</h3>
+                        <p>
+                            • Opening and closing visor mechanism<br>
+                            • Custom paper decals for authentic detailing<br>
+                            • Layered white gloss finish with weathering effects<br>
+                            • Game-accurate proportions and details
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <div id="article-bar">
-        <h1>Scout Trooper Helmet</h1>
-        <img src="https://i.postimg.cc/rFdfTT3k/IMG-0866.jpg" class="article-image" alt="Scout Trooper Helmet">
-        
-        <h4>Scout Trooper Helmet</h4>
-        
-        <p>
-            The iconic Scout Trooper helmet from Star Wars was a multi-day project—not just for the 3D printing but also due to the extensive sanding, painting, and finding a visor that fit the helmet perfectly. I made the decals using regular paper, which I glued onto the helmet, and gave it a layered white gloss spray paint job with Krylon, combined with light black spray paint to simulate the dirt and wear seen in the film. The helmet opens and closes just like the one in the movie. My main inspiration for this project was simply that I wanted it but wasn't willing to pay for it, so I decided to build it myself. 
-            I'd say it turned out pretty great!
-        </p>
-        <img src="https://i.postimg.cc/T3gQy9TN/IMG-0871.jpg" class="article-image" alt="Scout Trooper Helmet Detail">
-    </div>
-    
-    <script src="fractal.js"></script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ethan Surati. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentX = 0;
+        let currentY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateBackground() {
+            const bgGradient = document.getElementById('bgGradient');
+            const orb1 = document.getElementById('orb1');
+            const orb2 = document.getElementById('orb2');
+            const orb3 = document.getElementById('orb3');
+
+            currentX += (mouseX - currentX) * 0.05;
+            currentY += (mouseY - currentY) * 0.05;
+
+            const xPercent = (currentX / window.innerWidth) * 100;
+            const yPercent = (currentY / window.innerHeight) * 100;
+
+            if (bgGradient) {
+                bgGradient.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, rgba(37, 99, 235, 0.2) 0%, transparent 50%)`;
+            }
+
+            if (orb1) {
+                const orb1X = currentX * 0.3 - 200;
+                const orb1Y = currentY * 0.3 - 200;
+                orb1.style.transform = `translate(${orb1X}px, ${orb1Y}px)`;
+            }
+
+            if (orb2) {
+                const orb2X = window.innerWidth - currentX * 0.2 - 150;
+                const orb2Y = currentY * 0.4 - 150;
+                orb2.style.transform = `translate(${orb2X}px, ${orb2Y}px)`;
+            }
+
+            if (orb3) {
+                const orb3X = currentX * 0.15 + window.innerWidth * 0.3;
+                const orb3Y = window.innerHeight - currentY * 0.25 - 175;
+                orb3.style.transform = `translate(${orb3X}px, ${orb3Y}px)`;
+            }
+
+            requestAnimationFrame(animateBackground);
+        }
+
+        animateBackground();
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
